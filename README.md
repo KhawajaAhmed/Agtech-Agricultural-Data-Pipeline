@@ -31,11 +31,30 @@
 - `logs/`: Directory to store log files.
 - `README.md`: Project documentation.
 
+## Detail Project Schema
+
+fertilizer_data_collection/
+│
+├── config.yaml
+├── data/
+│   ├── industry_sales_trends.csv
+│   └── social_media_trends.csv
+├── src/
+│   ├── collectors/
+│   │   ├── data_collector.py
+│   │   ├── industry_sales_trends.py
+│   │   └── social_media_trends.py
+│   ├── utils.py
+│   └── main.py
+├── logs/
+│   └── app.log
+└── README.md
+
+
 ## Adding New Data Sources
 
 To add a new data source:
-1. Create a new Python module in the `src/` directory.
-2. Implement data collection functions using the provided utility functions.
+1. Create a new subclass of `DataCollector` in the `src/collectors/` directory.
+2. Implement the `fetch_data` method for the new data source.
 3. Update `config.yaml` to include the new data source.
-4. Modify `src/main.py` to include the new data collection functions.
-
+4. Modify `src/main.py` to include the new data collector class.
