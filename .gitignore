@@ -3,3 +3,4 @@ data
 logs
 *.yaml
 __pycache__
+e -i COMMIT_HASH^
