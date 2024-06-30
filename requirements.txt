@@ -1,0 +1,5 @@
+requests
+PyYAML
+pandas
+beautifulsoup4
+tweepy
