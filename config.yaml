@@ -1,9 +1,0 @@
-data_sources:
-  industry_sales_trends:
-    url: "https://example.com/industry-sales-trends"
-  economic_indicators:
-    url: "https://api.example.com/economic-indicators"
-    params:
-      api_key: "your_api_key"
-      start_date: "2023-01-01"
-      end_date: "2023-12-31"

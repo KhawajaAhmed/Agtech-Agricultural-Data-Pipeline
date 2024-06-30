@@ -1,5 +1,5 @@
 venv
 data
 logs
-.yaml
+*.yaml
 __pycache__
