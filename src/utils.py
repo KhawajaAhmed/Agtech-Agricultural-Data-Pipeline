@@ -1,6 +1,7 @@
 import requests
 import logging
 import yaml
+from json import JSONDecodeError
 
 # Set up logging
 logging.basicConfig(
@@ -11,8 +12,15 @@ logging.basicConfig(
 )
 
 def load_config():
-    with open('config.yaml', 'r') as file:
-        return yaml.safe_load(file)
+    try:
+        with open('config.yaml', 'r') as file:
+            return yaml.safe_load(file)
+    except FileNotFoundError as e:
+        logging.error(f"Configuration file not found: {e}")
+        return {}
+    except yaml.YAMLError as e:
+        logging.error(f"Error parsing configuration file: {e}")
+        return {}
 
 def fetch_data(url, params=None):
     try:
@@ -22,3 +30,12 @@ def fetch_data(url, params=None):
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching data from {url}: {e}")
         return None
+    except JSONDecodeError as e:
+        logging.error(f"Error decoding JSON response from {url}: {e}")
+        return None
+
+def log_info(message):
+    logging.info(message)
+
+def log_error(message):
+    logging.error(message)
