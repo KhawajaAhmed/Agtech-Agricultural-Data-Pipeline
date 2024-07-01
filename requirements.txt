@@ -3,3 +3,4 @@ PyYAML
 pandas
 faostat
 tweepy # only if you are collecting twitter data
+textblob # only if you are collecting twitter data

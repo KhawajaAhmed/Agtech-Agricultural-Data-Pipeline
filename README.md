@@ -52,7 +52,9 @@ fertilizer_data_collection/
 |
 ├── logs/
 │   └── app.log
+├── documentation.md
 └── README.md
+
 
 
 ## Adding New Data Sources
