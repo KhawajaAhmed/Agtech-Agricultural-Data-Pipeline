@@ -22,7 +22,7 @@ class IndustrySalesTrendsCollector(DataCollector):
         }
         
         response = fetch_data(base_url, params)
-
+        
         if response is not None:
             try:
                 json_data = response.json()
