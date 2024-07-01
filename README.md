@@ -37,9 +37,11 @@
 fertilizer_data_collection/
 │
 ├── config.yaml
+|
 ├── data/
 │   ├── industry_sales_trends.csv
 │   └── social_media_trends.csv
+|
 ├── src/
 │   ├── collectors/
 │   │   ├── data_collector.py
@@ -47,6 +49,7 @@ fertilizer_data_collection/
 │   │   └── social_media_trends.py
 │   ├── utils.py
 │   └── main.py
+|
 ├── logs/
 │   └── app.log
 └── README.md
