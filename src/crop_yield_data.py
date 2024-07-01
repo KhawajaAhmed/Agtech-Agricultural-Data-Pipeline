@@ -10,9 +10,9 @@ class CropYieldDataCollector(DataCollector):
     def fetch_data(self):
 
         mypars = {
-            'area': self.source_config['region'],
-            'element': self.source_config['element'],
-            'item': self.source_config['itemsagg']
+            'area': self.source_config['usa'],
+            'element': self.source_config['yield'],
+            'item': self.source_config['crops']
             }
         
         self.data = faostat.get_data_df('QCL', pars=mypars, strval=False)
