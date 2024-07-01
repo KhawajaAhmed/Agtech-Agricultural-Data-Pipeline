@@ -1,4 +1,5 @@
 requests
 PyYAML
 pandas
-tweepy
+faostat
+tweepy # only if you are collecting twitter data

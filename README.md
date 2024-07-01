@@ -20,7 +20,7 @@
 
 4. Run the data collection script:
     ```bash
-    python src/main.py
+    python -m src.main.py
     ```
 
 ## Project Structure
@@ -30,6 +30,7 @@
 - `src/`: Source code directory.
 - `logs/`: Directory to store log files.
 - `README.md`: Project documentation.
+- `requirements.txt`: Dependencies to install.
 
 ## Detail Project Schema
 
