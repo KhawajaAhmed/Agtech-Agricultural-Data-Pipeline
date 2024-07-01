@@ -18,8 +18,7 @@ This document outlines the steps undertaken and the integration of data sources 
 - **Transformation**: Data is transformed to meet specific requirements, such as aggregating values or filtering outliers. It is converted from json_request->text->dataFrame->csv
   - **Example**: `save_to_csv` method in `DataCollector`.
 
-## Data Source Integration
-
+### Data Source Integration
 - **Add a new Data Source**
     1. Create a new subclass of `DataCollector` in the `src/collectors/` directory.
     2. Implement the `fetch_data` method for the new data source.
