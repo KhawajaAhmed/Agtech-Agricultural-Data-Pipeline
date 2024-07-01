@@ -1,6 +1,6 @@
-from .industry_sales_trends import IndustrySalesTrendsCollector
+from .collectors.industry_sales_trends import IndustrySalesTrendsCollector
 # from .social_media_trends import SocialMediaTrendsCollector
-from .crop_yield_data import CropYieldDataCollector
+from .collectors.crop_yield_data import CropYieldDataCollector
 
 def main():
     print("Collecting Industry Sales Trends...")
