@@ -1,5 +1,7 @@
 # Fertilizer Data Collection Tool
 
+## Description
+This is an ETL pipeline for agricultural data collection, leveraging SQL and APIs for efficient querying, with automated validation and cleaning for reliable insights.
 
 ## Introduction
 This document outlines the steps undertaken and the integration of data sources in the this project. The goal is to provide clarity on how data is collected and integrated into the project pipeline.
