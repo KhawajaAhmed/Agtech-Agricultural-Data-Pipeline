@@ -1,66 +1,49 @@
 # Fertilizer Data Collection Tool
 
-## Setup Instructions
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/fertilizer_data_collection.git
-    cd fertilizer_data_collection
-    ```
+## Introduction
+This document outlines the steps undertaken and the integration of data sources in the this project. The goal is to provide clarity on how data is collected and integrated into the project pipeline.
 
-2. Set up a virtual environment and install dependencies:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-    ```
+### Step 1: Data Collection
+- **Data Collectors**: Data is collected using specialized collectors (`DataCollector` subclasses) tailored for each data source.
+  - **Example**: The `IndustrySalesTrendsCollector` collects industry sales trends data from an USDA NASS API using parameters configured in `config.yaml`.
 
-3. Configure data sources:
-    - Edit `config.yaml` to specify the URLs and parameters for data sources.
+### Step 2: Data Fetching and Parsing
+- **Fetch Data**: Data is fetched from external sources using HTTP requests.
+  - **Example**: The `fetch_data` function in `utils.py` handles HTTP requests and error handling.
 
-4. Run the data collection script:
-    ```bash
-    python -m src.main.py
-    ```
+- **Parse Data**: JSON responses are parsed into pandas DataFrames for further processing.
+  - **Example**: Parsed data from JSON responses is stored in pandas DataFrames within respective collector classes (`self.data`).
 
-## Project Structure
+### Step 3: Data Conversion
+- **Transformation**: Data is transformed to meet specific requirements, such as aggregating values or filtering outliers. It is converted from json_request->text->dataFrame->csv
+  - **Example**: `save_to_csv` method in `DataCollector`.
 
-- `config.yaml`: Configuration file for specifying data sources.
-- `data/`: Directory to store collected data.
-- `src/`: Source code directory.
-- `logs/`: Directory to store log files.
-- `README.md`: Project documentation.
-- `requirements.txt`: Dependencies to install.
-
-## Detail Project Schema
-
-fertilizer_data_collection/
-│
-├── config.yaml
-|
-├── data/
-│   ├── industry_sales_trends.csv
-│   └── social_media_trends.csv
-|
-├── src/
-│   ├── collectors/
-│   │   ├── data_collector.py
-│   │   ├── industry_sales_trends.py
-│   │   └── social_media_trends.py
-│   ├── utils.py
-│   └── main.py
-|
-├── logs/
-│   └── app.log
-├── documentation.md
-└── README.md
+### Data Source Integration
+- **Add a new Data Source**
+    1. Create a new subclass of `DataCollector` in the `src/collectors/` directory.
+    2. Implement the `fetch_data` method for the new data source.
+    3. Update `config.yaml` to include the new data source.
+    4. Modify `src/main.py` to include the new data collector class.
 
 
+### FAOSTAT Integration
+- **Data Source**: FAOSTAT provides agricultural statistics data globally.
+- **Integration**: Data integration involves querying FAOSTAT API for specific datasets (e.g., crop yield data).
+  - **Example**: The `CropYieldDataCollector` integrates FAOSTAT data by querying for crop yield statistics based on configured parameters (`mypars`).
 
-## Adding New Data Sources
+### External APIs
+- **Data Source**: External APIs provide industry-specific trends and economic data. Here are the APIs used: 
+    - [USDA QuickStats API](https://quickstats.nass.usda.gov/api)
+    - [X API](https://developer.x.com/en/docs/twitter-api/getting-started/about-twitter-api)
 
-To add a new data source:
-1. Create a new subclass of `DataCollector` in the `src/collectors/` directory.
-2. Implement the `fetch_data` method for the new data source.
-3. Update `config.yaml` to include the new data source.
-4. Modify `src/main.py` to include the new data collector class.
+- **Integration**: APIs are queried using HTTP requests with parameters from configuration files.
+- **Example**: The `IndustrySalesTrendsCollector` integrates industry sales trends by fetching and parsing data from external APIs (`base_url`, `params`).
+
+### External Libraries
+- [pandas](https://pandas.pydata.org/)
+- [requests](https://pypi.org/project/requests/)
+- [PyYaml](https://pypi.org/project/PyYAML/)
+- [faostat](https://pypi.org/project/faostat/)
+- [textblob](https://textblob.readthedocs.io/en/dev/) : only if you are pulling tweets from twitter
+- [tweepy](https://www.tweepy.org/) : only if you are pulling tweets from twitter
