@@ -1,7 +1,7 @@
 # Fertilizer Data Collection Tool
 
 ## Description
-This is an ETL pipeline for agricultural data collection, leveraging SQL and APIs for efficient querying, with automated validation and cleaning for reliable insights.
+This is a scalable ETL pipeline to streamline data collection, storage, and processing, utilizing SQL and API integrations to efficiently query and retrieve data. It automates data cleaning using Python pandas and NumPy to ensure high-quality, reliable insights for decision-making. The pipeline has been designed with reusability in mind to easily adapt to different research domains. By optimizing data retrieval and processing times, the pipeline accelerates the delivery of critical information to stakeholders, improving data-driven workflows in a research or business context. 
 
 ## Introduction
 This document outlines the steps undertaken and the integration of data sources in the this project. The goal is to provide clarity on how data is collected and integrated into the project pipeline.
